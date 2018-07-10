@@ -2,7 +2,7 @@
 import numpy as np
 import scipy
 from scipy.interpolate import interp1d
-
+import pdb
 
 
 def iradon(radon_mat,theta):
@@ -26,7 +26,7 @@ def iradon(radon_mat,theta):
     # 初始化输出矩阵
     img=np.zeros((x_len,y_len),np.float32)
 
-    # 生成距离xr向量
+    # 生成距离xr向量 dig 对角线长
     dig = np.sqrt(x_len ** 2 + y_len ** 2)
     xr = np.linspace(-dig / 2, dig / 2, num=y_len, endpoint=True)
 
