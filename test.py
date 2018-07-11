@@ -3,12 +3,11 @@ import cv2
 from scipy.interpolate import interp1d
 import iradon
 
-a = np.loadtxt('radon.txt')
-a=a.transpose()
+def make_rampfunc(x0,y0):
+    return lambda x,y: np.sqrt((x-x0)**2+(y-y0)**2)
 
-theta = np.linspace(0 , 180 , 512 ,endpoint=True ,dtype=np.float32)
-print(theta)
+x=1
+y=2
+ramp=make_rampfunc(x,y)
 
-result=iradon.iradon(a,theta)
-
-np.savetxt("iradon.txt", result)
+print(ramp(-2,6))
